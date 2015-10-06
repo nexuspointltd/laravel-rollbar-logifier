@@ -1,5 +1,5 @@
 {
-    "name": "nexuspoint/laravel-logifier",
+    "name": "nexuspoint/laravel-rollbar-logifier",
     "description": "Slack notifications for Exceptions and logs",
     "keywords": ["laravel","laravel-5","logs","slack","monolog"],
     "license": "MIT",
@@ -13,7 +13,6 @@
     ],
     "require": {
         "php" : ">=5.5.9",
-        "illuminate/database" : "5.1.*",
         "rollbar/rollbar": "^0.15.0"
     },
     "require-dev": {
