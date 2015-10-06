@@ -17,8 +17,6 @@ class ServiceProvider extends BaseServiceProvider
         $configFile = __DIR__ . '/config/config.php';
         $this->mergeConfigFrom($configFile, 'logifier');
 
-        $this->publishes([$configFile => config_path('logifier.php')], 'config');
-
         $this->registerCustomLogger();
     }
 
@@ -42,9 +40,16 @@ class ServiceProvider extends BaseServiceProvider
 
         $monolog = Log::getMonolog();
 
+        $user = $this->app['auth']->user();
+        //dd($user);
+        if ($user) {
+            $user = array_only($user->toArray(), ['id', 'email']);
+        }
+
         $rollbarNotifier = new \RollbarNotifier([
             'access_token' => $config['token'],
             'environment'  => $this->app->environment(),
+            //'person'       => $user,
         ]);
         $handler = new RollbarHandler(
             $rollbarNotifier,
@@ -53,11 +58,6 @@ class ServiceProvider extends BaseServiceProvider
         );
 
         $handler->pushProcessor(new WebProcessor());
-        $user = \Auth::user();
-        if ($user) {
-            $monolog->addInfo('USER ID: ' . $user->id);
-        }
-
         $monolog->pushHandler($handler);
     }
 
