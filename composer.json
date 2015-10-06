@@ -1,0 +1,40 @@
+{
+    "name": "nexuspoint/laravel-logifier",
+    "description": "Slack notifications for Exceptions and logs",
+    "keywords": ["laravel","laravel-5","logs","slack","monolog"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Reid",
+            "email": "chris.reid@nexuspoint.co.uk",
+            "homepage": "http://www.nexuspoint.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.9",
+        "illuminate/database" : "5.1.*",
+        "rollbar/rollbar": "^0.15.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NexusPoint\\RollbarLogifier\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NexusPoint\\RollbarLogifier\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
