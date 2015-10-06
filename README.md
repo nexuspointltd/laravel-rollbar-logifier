@@ -1,3 +1,3 @@
-# Laravel Logifier
+# Laravel Rollbar Logifier
 
-## Notify via slack by the Laravel Monolog instance, and automatically notify exceptions
+## Notify via Rollbar by the Laravel Monolog instance, and automatically notify exceptions
